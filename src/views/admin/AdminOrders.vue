@@ -41,12 +41,12 @@
             </tr>
           </tbody>
         </table>
-        <PaginationComponent :pages="pagination" @emit-pages="getProducts"></PaginationComponent>
+        <PaginationComponent :pages="pagination" @emit-pages="getOrders"></PaginationComponent>
       </div>
     </div>
   </div>
   <OrderModal ref="orderModal" :order="tempOrder" @update-paid="updateOrder"></OrderModal>
-  <DelOrderModal :temp-order="tempOrder" @get-orders="getOrders" @close-modal="closeModal" ref="delOrderModal"></DelOrderModal>
+  <DelOrderModal :order="tempOrder" @get-orders="getOrders" @close-modal="closeModal" ref="delOrderModal"></DelOrderModal>
 </template>
 <script>
 import OrderModal from '@/components/OrderModal.vue';
@@ -59,7 +59,7 @@ export default{
     return {
       orders:[],
       pagination:{},
-      tempOrder:{}
+      tempOrder:{id:'333'}
     };
   },
   components:{
@@ -73,7 +73,7 @@ export default{
       this.$http
         .get(`${VITE_API}/api/${VITE_PATH}/admin/orders?page=${page}`)
         .then((res) => {
-          console.log(res.data);
+          // console.log("訂單", res.data);
           const { pagination, orders } = res.data;
           this.orders = orders;
           this.pagination = pagination

@@ -12,7 +12,7 @@
         </div>
         <!-- modal-body -->
         <div class="modal-body">
-          <form class="row g-3">
+          <form class="row g-3 mb-3">
             <div class="col-md-4">
               <label for="mainImage" class="form-label">主要圖片</label>
               <input type="text" class="form-control" id="mainImage" placeholder="請輸入圖片連結"
@@ -21,14 +21,14 @@
               <!-- 多圖 -->
               <h3 class="mt-5">多圖新增</h3>
               <template v-for="(img, key) in tempProduct.imagesUrl" :key="key">
-                <label for="imageUrl" class="form-label mt-4">圖片網址</label>
+                <label for="imageUrl" class="form-label mt-3">圖片網址</label>
                 <input type="text" class="form-control" placeholder="請輸入圖片連結" v-model="tempProduct.imagesUrl[key]" />
                 <img class="img-fluid" :src="img" alt="圖片" />
                 <button type="button" class="btn btn-outline-danger w-100 mt-2" @click="removeImage(key)">
                   刪除
                 </button>
               </template>
-              <button type="button" class="btn btn-outline-primary w-100 mt-5" @click="addImage">
+              <button type="button" class="btn btn-outline-primary w-100 mt-3" @click="addImage">
                 新增圖片
               </button>
             </div>
@@ -79,6 +79,10 @@
               </div>
             </div>
           </form>
+          <div class="text-success">
+            <hr>
+          </div>
+          <ImgUpload></ImgUpload>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
@@ -93,6 +97,7 @@
   </div>
 </template>
 <script>
+import ImgUpload from '@/components/ImgUpload.vue';
 import modalMixin from '@/mixins/modalMixin.js'
 const { VITE_API, VITE_PATH } = import.meta.env
 export default {
@@ -105,12 +110,15 @@ export default {
   data() {
     return {
       tempProduct: {},
-      modal:''
+      modal: ''
     };
   },
-  mixins:[modalMixin], //混合元件方法 mixins，modal開關元件
-  watch:{
-    product(){
+  components: {
+    ImgUpload
+  },
+  mixins: [modalMixin], //混合元件方法 mixins，modal開關元件
+  watch: {
+    product() {
       this.tempProduct = this.product;
     }
   },

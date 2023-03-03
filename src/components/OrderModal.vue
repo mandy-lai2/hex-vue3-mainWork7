@@ -112,7 +112,7 @@ export default {
   watch:{
     order(){
       this.tempOrder = this.order;
-      console.log(this.tempOrder);
+      // console.log(this.tempOrder);
     }
   },
   mixins: [modalMixin,dateMixin], //混合元件方法 mixins

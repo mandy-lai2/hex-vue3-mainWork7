@@ -14,7 +14,11 @@
             </div>
             <!-- modal-body -->
             <div class="modal-body">
-              是否刪除 訂單(刪除後將無法恢復)
+              是否刪除
+              <span class="text-danger">
+                {{ order.id }}
+              </span>
+               訂單(刪除後將無法恢復)
             </div>
             <div class="modal-footer">
               <button
@@ -35,20 +39,17 @@
           </div>
         </div>
       </div>
+      
 </template>
 <script>
 import modalMixin from '@/mixins/modalMixin.js'
 const { VITE_API, VITE_PATH } = import.meta.env
 export default {
   props: {
-    tempOrder: {
+    order: {
       type: Object,
+      default() { return {}; },
     },
-  },
-  watch:{
-    tempOrder(){
-      console.log(this.tempOrder.id);
-    }
   },
   mixins:[modalMixin], //混合元件方法 mixins，modal開關元件
   methods: {
@@ -56,7 +57,7 @@ export default {
     delOrder() {
       this.$http
         .delete(
-          `${VITE_API}/api/${VITE_PATH}/admin/order/${this.tempOrder.id}`
+          `${VITE_API}/api/${VITE_PATH}/admin/order/${this.order.id}`
         )
         .then((res) => {
           alert(res.data.message);
@@ -69,5 +70,4 @@ export default {
     },
   },
 };
-
 </script>

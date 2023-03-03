@@ -14,6 +14,7 @@ const router = createRouter({
       children:[
         {
           path: 'products',
+          name:'products',
           component: () => import('../views/admin/AdminProducts.vue')
         },
         {
@@ -29,6 +30,12 @@ const router = createRouter({
           component: () => import('../views/admin/AdminNewsArticle.vue')
         }
       ]
+    },
+    {
+      path: '/:pathMatch(.*)*', // 重新導向
+      redirect: {
+        name: 'products'
+      }
     }
   ]
 })
