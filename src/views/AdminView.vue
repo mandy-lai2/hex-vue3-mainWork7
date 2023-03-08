@@ -8,16 +8,16 @@
     <div class="collapse navbar-collapse d-flex-lg justify-content-center" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <router-link to="/admin/products" class="nav-link">產品管理</router-link>
+          <RouterLink to="/admin/products" class="nav-link">產品管理</RouterLink>
         </li>
         <li class="nav-item">
-          <router-link to="/admin/orders" class="nav-link">訂單管理</router-link>
+          <RouterLink to="/admin/orders" class="nav-link">訂單管理</RouterLink>
         </li>
         <li class="nav-item">
-          <router-link to="/admin/coupons" class="nav-link">優惠券管理</router-link>
+          <RouterLink to="/admin/coupons" class="nav-link">優惠券管理</RouterLink>
         </li>
         <li class="nav-item">
-          <router-link to="/admin/news" class="nav-link">最新消息管理</router-link>
+          <RouterLink to="/admin/news" class="nav-link">最新消息管理</RouterLink>
         </li>
       </ul>
       <button type="button" class="btn btn-secondary ms-auto" @click.prevent="logout">登出</button>
@@ -27,7 +27,7 @@
 </nav>
 
 <div class="container">
-  <router-view></router-view>
+  <RouterView></RouterView>
 </div>
 <div class="container">
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

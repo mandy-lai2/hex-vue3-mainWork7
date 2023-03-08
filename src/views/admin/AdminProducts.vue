@@ -71,6 +71,7 @@ export default {
   },
   methods: {
     getProducts(page = 1) {
+      const loader = this.$loading.show()
       this.$http
         .get(`${VITE_API}/api/${VITE_PATH}/admin/products?page=${page}`)
         .then((res) => {
@@ -78,6 +79,7 @@ export default {
           const { pagination, products } = res.data;
           this.products = products;
           this.pagination = pagination;
+          loader.hide()
           // console.log(this.pagination);
         })
         .catch((error) => {

@@ -12,7 +12,7 @@
         </div>
         <!-- modal-body -->
         <div class="modal-body">
-          <form class="row g-3 mb-3">
+          <v-form class="row g-3 mb-3"  v-slot="{ errors }">
             <div class="col-md-4">
               <label for="mainImage" class="form-label">主要圖片</label>
               <input type="text" class="form-control" id="mainImage" placeholder="請輸入圖片連結"
@@ -37,27 +37,97 @@
               <div class="row">
                 <div class="col-12 mb-3">
                   <label for="inputTitle" class="form-label">標題</label>
-                  <input type="text" class="form-control" id="inputTitle" placeholder="請輸入標題"
-                    v-model="tempProduct.title" />
+                  <!-- <input type="text" class="form-control" id="inputTitle" placeholder="請輸入標題"
+                    v-model="tempProduct.title" /> -->
+                    <v-field
+                id="inputTitle"
+                name="標題"
+                type="text"
+                class="form-control"
+                :class="{ 'is-invalid': errors['標題'] }"
+                placeholder="請輸入標題"
+                rules="required"
+                v-model="tempProduct.title"
+              ></v-field>
+              <error-message
+                name="標題"
+                class="invalid-feedback"
+              ></error-message>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="inputCategory" class="form-label">分類</label>
-                  <input type="text" class="form-control" id="inputCategory" placeholder="請輸入分類"
-                    v-model="tempProduct.category" />
+                  <!-- <input type="text" class="form-control" id="inputCategory" placeholder="請輸入分類"
+                    v-model="tempProduct.category" /> -->
+                    <v-field
+                id="inputCategory"
+                name="分類"
+                type="text"
+                class="form-control"
+                :class="{ 'is-invalid': errors['分類'] }"
+                placeholder="請輸入分類"
+                rules="required"
+                v-model="tempProduct.category"
+              ></v-field>
+              <error-message
+                name="分類"
+                class="invalid-feedback"
+              ></error-message>
                 </div>
                 <div class="col-md-6">
                   <label for="inputUnit" class="form-label">單位</label>
-                  <input type="text" class="form-control" id="inputUnit" placeholder="請輸入單位" v-model="tempProduct.unit" />
+                  <!-- <input type="text" class="form-control" id="inputUnit" placeholder="請輸入單位" v-model="tempProduct.unit" /> -->
+                  <v-field
+                id="inputUnit"
+                name="單位"
+                type="text"
+                class="form-control"
+                :class="{ 'is-invalid': errors['單位'] }"
+                placeholder="請輸入單位"
+                rules="required"
+                v-model="tempProduct.unit"
+              ></v-field>
+              <error-message
+                name="單位"
+                class="invalid-feedback"
+              ></error-message>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="inputOriginPrice" class="form-label">原價</label>
-                  <input type="number" min=0 class="form-control" id="inputOriginPrice" placeholder="請輸入原價"
-                    v-model.number="tempProduct.origin_price" />
+                  <!-- <input type="number" min=0 class="form-control" id="inputOriginPrice" placeholder="請輸入原價"
+                    v-model.number="tempProduct.origin_price" /> -->
+                    <v-field
+                id="inputOriginPrice"
+                name="原價"
+                type="text"
+                class="form-control"
+                :class="{ 'is-invalid': errors['原價'] }"
+                placeholder="請輸入原價"
+                rules="required"
+                v-model="tempProduct.origin_price"
+              ></v-field>
+              <error-message
+                name="原價"
+                class="invalid-feedback"
+              ></error-message>
                 </div>
                 <div class="col-md-6">
                   <label for="inputPrice" class="form-label">售價</label>
-                  <input type="number" min=0 class="form-control" id="inputPrice" placeholder="請輸入售價"
-                    v-model.number="tempProduct.price" />
+                  <!-- <input type="number" min=0 class="form-control" id="inputPrice" placeholder="請輸入售價"
+                    v-model.number="tempProduct.price" /> -->
+                    <v-field
+                id="inputPrice"
+                name="售價"
+                type="text"
+                class="form-control"
+                :class="{ 'is-invalid': errors['售價'] }"
+                placeholder="請輸入售價"
+                rules="required"
+                v-model="tempProduct.price"
+              ></v-field>
+              <error-message
+                name="售價"
+                class="invalid-feedback"
+              ></error-message>
                 </div>
                 <hr class="mt-3" />
                 <div class="col-12 mb-3">
@@ -78,7 +148,7 @@
                 </div>
               </div>
             </div>
-          </form>
+          </v-form>
           <div class="text-success">
             <hr>
           </div>

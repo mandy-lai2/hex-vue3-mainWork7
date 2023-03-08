@@ -70,6 +70,7 @@ export default{
   mixins: [dateMixin],
   methods:{
     getOrders(page = 1) {
+      const loader = this.$loading.show()
       this.$http
         .get(`${VITE_API}/api/${VITE_PATH}/admin/orders?page=${page}`)
         .then((res) => {
@@ -77,6 +78,7 @@ export default{
           const { pagination, orders } = res.data;
           this.orders = orders;
           this.pagination = pagination
+          loader.hide()
         })
         .catch((error) => {
           alert(error.response.data.message);
