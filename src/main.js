@@ -28,7 +28,6 @@ import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json'
 Object.keys(VeeValidateRules).forEach((rule) => {
   defineRule(rule, VeeValidateRules[rule])
 })
-
 // VeeValidate 的語系設定為繁體中文
 configure({
   generateMessage: localize({ zh_TW: zhTW }), // 載入繁體中文
