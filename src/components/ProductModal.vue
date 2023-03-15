@@ -98,7 +98,7 @@
                     <v-field
                 id="inputOriginPrice"
                 name="原價"
-                type="text"
+                type="number"
                 class="form-control"
                 :class="{ 'is-invalid': errors['原價'] }"
                 placeholder="請輸入原價"
@@ -117,7 +117,7 @@
                     <v-field
                 id="inputPrice"
                 name="售價"
-                type="text"
+                type="number"
                 class="form-control"
                 :class="{ 'is-invalid': errors['售價'] }"
                 placeholder="請輸入售價"
